@@ -1,9 +1,9 @@
 import io from 'socket.io';
 import express from 'express';
 import mongoose from 'mongoose';
-import {api, mongoDB} from './config/loggers';
-import {API_PORT, MONGO_DB_URI} from './config';
-import {test} from './routes';
+import { api, mongoDB } from './config/loggers';
+import { API_PORT, MONGO_DB_URI } from './config';
+import { test } from './routes';
 
 const app = express();
 const httpServer = app.listen(API_PORT);
@@ -26,21 +26,7 @@ app.use('/test', test);
     useCreateIndex: true,
     useFindAndModify: false,
   });
-  //
-  // await httpServer.listen(API_PORT);
 
   mongoDB.success(`📀 Succesfully connected to database: ${MONGO_DB_URI}`);
   api.success(`🚀 HTTP and WS servers ready at http://localhost:${API_PORT}`);
-
-  // wsServer.on('connection', (socket) => {
-  //   wsServer.emit('serverUpdate', 'Update from server');
-  //
-  //   socket.on('clientUpdate', (payload) => {
-  //     console.log(payload);
-  //   });
-  //
-  //   socket.on('disconnect', () => {
-  //     console.log('user disconnected');
-  //   });
-  // });
 })();

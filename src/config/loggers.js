@@ -1,4 +1,4 @@
-import {Signale} from 'signale';
+import { Signale } from 'signale';
 
 const mongoDB = new Signale({
   interactive: true,
@@ -17,4 +17,4 @@ const api = new Signale({
   },
 });
 
-export {mongoDB, api};
+export { mongoDB, api };
